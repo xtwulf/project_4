@@ -14,7 +14,7 @@ function handleSubmit(event) {
 
     
 }
-
+/*
 function test(event) {
     event.preventDefault();
 
@@ -39,6 +39,7 @@ function test(event) {
 
     console.log (response);
 }
+*/
 
 export { handleSubmit };
-export { test };
+//export { test };
