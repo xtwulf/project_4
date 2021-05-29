@@ -11,8 +11,6 @@ const postData = async ( url = '', data = {})=>{
     console.log('::: postData running :::');
     console.log("URL:",url);
     console.log("Data:", data);
-    let x = data;
-    console.log("Test new variable ",x.text);
     const response = await fetch(url, {
     method: 'POST', 
     credentials: 'same-origin', 
@@ -25,8 +23,10 @@ const postData = async ( url = '', data = {})=>{
   try {
       // writing the Server response in the newData variable
       const newData = await response.json();
+
       // checking the response for errors
       console.log("New Data:",newData);
+      console.log(newData.status);
       if (newData.cod == 404) {
         throw {
           name: 'Input Error',
@@ -34,11 +34,12 @@ const postData = async ( url = '', data = {})=>{
           code: newData.cod
         }
       }
-      if (newData.cod != 200) {
+      if (newData.status.code != 0) {
+        
         throw {
           name: 'Application Error',
           message: 'Sorry, something went wrong...!',
-          code: newData.cod
+          code: 'Error: ' + newData.status.code
         }
       }
       // return the received date for the combined function
@@ -47,7 +48,8 @@ const postData = async ( url = '', data = {})=>{
     }
     // Error handling
     catch(error) {
-      alert("---Error:" + error);
+      let message = error.name + "\n" + error.message;
+      alert("---Error:" + message);
     }
   };
   
