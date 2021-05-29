@@ -1,7 +1,8 @@
 import { checkForName } from './js/nameChecker';
 import { handleSubmit } from './js/formHandler';
 //import { test } from './js/formHandler';
-import { postData } from './js/post_data';
+import { postData } from './js/post_handling';
+import { postGet } from './js/post_handling';
 
 import './styles/resets.scss'
 import './styles/base.scss'
@@ -22,8 +23,9 @@ export {
 export {
     checkForName,
     handleSubmit,
-    postData
+    postData,
+    postGet
 }
 
-alert("I EXIST")
+
 console.log("CHANGE!!");
