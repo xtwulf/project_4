@@ -2,7 +2,8 @@ import { checkForName } from './js/nameChecker';
 import { handleSubmit } from './js/formHandler';
 //import { test } from './js/formHandler';
 import { postData } from './js/post_handling';
-import { postGet } from './js/post_handling';
+import { postGet } from './js/post_handling'; 
+
 
 import './styles/resets.scss'
 import './styles/base.scss'

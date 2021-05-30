@@ -1,11 +1,5 @@
 // postData --> nur async Funktion
-// wird über postget POST request wird dann über postGet ausgeführt
-/*
-function postData() {
-    console.log('::: postData running :::');
-
-}
-*/
+// POST request wird dann über postGet ausgeführt
 
 const postData = async ( url = '', data = {})=>{
     console.log('::: postData running :::');
@@ -28,13 +22,28 @@ const postData = async ( url = '', data = {})=>{
       console.log("New Data:",newData);
       console.log(newData.status);
 
-      if (newData.status.code != 0) {     
+      
+
+      if (newData.status.code !=0 && newData.status.code !=666 ) {     
         throw {
           name: 'Application Error',
           message: 'Sorry, something went wrong...!',
           code: 'Error: ' + newData.status.code
         }
       }
+
+      if (newData.status.code == 666) {
+        console.log("number of the beast");
+        throw {
+          name: 'Application Error',
+          message: 'Service unavailable',
+          code: 'Error:' + newData.status.code
+        }
+      }
+
+
+
+      
       // return the received date for the combined function
       console.log("NewData:",newData);
       return newData;
@@ -50,17 +59,21 @@ const postData = async ( url = '', data = {})=>{
 
   // Calling the postData function via Submit Event here
 
-function postGet(){
+function postGet(text,route){
     console.log('postGet');
-    let text = document.getElementById('text').value;
+    //let text = document.getElementById('text').value;
+    /*
+    // moved check in formHandling
     if (!text) {
         alert("Please fill in the field...!");
         return;
     }
+    */
     console.log("Text:",text);
+    
      // Making the POST request on the /sentiment_analysis route
     //postData('/sentiment_analysis', {text:text});
-    postData('/deep_cat', {text: text});
+    postData(route, {text: text});
   }
 
   export { postGet };

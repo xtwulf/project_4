@@ -38,19 +38,28 @@
             -->
           
             <section>
-                <div>
-                    <input id='text' type="textarea" name="text" value="Test" placeholder="text here">
-                </div>
-                
-                    <label for="api">Choose a api:</label>
-                    <select id="api" name="apis">
-                      <option value="sentiment">Sentiment</option>
-                      <option value="categorization">Categorization</option>
-                      <option value="#">tbd</option>
-                      <option value="#">tbd</option>
-                    </select>
-                    
-                <button onclick="Client.postGet()">Check meaning</button>
+
+                <form>
+                    <label for='text'>
+                        <!-- <textarea id='text' name="text" value="default" rows="5" cols="40"> -->
+                        <textarea id='text' name="text" value="default" rows="5" cols=75%>Please type text here</textarea>
+                        <br>
+
+                        <label for="api">Choose a api:</label>
+                        <select id="api" name="apis">
+                            <option value="0">Sentiment</option>
+                            <option value="1">Categorization</option>
+                            <option value="2">tbd</option>
+                            <option value="3">tbd</option>
+                        </select>       
+
+                        <input onclick="Client.handleSubmit(event)" type="submit" id='text' name="text" value="Test" placeholder="Check meaning">
+
+
+                    </label>
+
+                </form>
+                                
             </section>
 
             <section>
