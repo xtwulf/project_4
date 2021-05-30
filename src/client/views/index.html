@@ -22,6 +22,8 @@
         </header>
 
         <main>
+
+            <!--
             <section>
                 <div>
                     <form class="" onsubmit="return Client.handleSubmit(event)">
@@ -30,14 +32,25 @@
                     </form>
                 </div>
 
-                <div>
-                    <input id='text' type="text" name="text" value="Test" placeholder="text here">
-                </div>
+                
                 
             </section>
-
+            -->
+          
             <section>
-                <button onclick="Client.postGet()">Test</button>
+                <div>
+                    <input id='text' type="textarea" name="text" value="Test" placeholder="text here">
+                </div>
+                
+                    <label for="api">Choose a api:</label>
+                    <select id="api" name="apis">
+                      <option value="sentiment">Sentiment</option>
+                      <option value="categorization">Categorization</option>
+                      <option value="#">tbd</option>
+                      <option value="#">tbd</option>
+                    </select>
+                    
+                <button onclick="Client.postGet()">Check meaning</button>
             </section>
 
             <section>

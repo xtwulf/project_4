@@ -27,15 +27,8 @@ const postData = async ( url = '', data = {})=>{
       // checking the response for errors
       console.log("New Data:",newData);
       console.log(newData.status);
-      if (newData.cod == 404) {
-        throw {
-          name: 'Input Error',
-          message: 'Sorry, an error occured...',
-          code: newData.cod
-        }
-      }
-      if (newData.status.code != 0) {
-        
+
+      if (newData.status.code != 0) {     
         throw {
           name: 'Application Error',
           message: 'Sorry, something went wrong...!',
@@ -55,7 +48,7 @@ const postData = async ( url = '', data = {})=>{
   
 // 
 
-  // Aufruf von postData durch Submit Event hier
+  // Calling the postData function via Submit Event here
 
 function postGet(){
     console.log('postGet');
