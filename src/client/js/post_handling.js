@@ -51,7 +51,7 @@ const postData = async ( url = '', data = {})=>{
     // Error handling
     catch(error) {
       let message = error.name + "\n" + error.message;
-      alert("---Error:" + message);
+      alert("Error:" + message);
     }
   };
   

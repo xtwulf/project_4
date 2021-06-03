@@ -1,0 +1,9 @@
+Frontend
+========
+> Display the requests in element
+> add styles
+
+Error handling
+==============
+> Fix error when input´s too long
+
