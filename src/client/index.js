@@ -3,6 +3,7 @@ import { handleSubmit } from './js/formHandler';
 //import { test } from './js/formHandler';
 import { postData } from './js/post_handling';
 import { postGet } from './js/post_handling'; 
+import { updateGui } from './js/updateGui.js';
 
 
 import './styles/resets.scss'
@@ -11,7 +12,7 @@ import './styles/footer.scss'
 import './styles/form.scss'
 import './styles/header.scss'
 
-console.log(checkForName);
+//console.log(checkForName);
 
 /*
 export {
@@ -25,8 +26,9 @@ export {
     checkForName,
     handleSubmit,
     postData,
-    postGet
+    postGet,
+    updateGui
 }
 
 
-console.log("CHANGE!!");
+//console.log("CHANGE!!");

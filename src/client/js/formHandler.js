@@ -1,8 +1,9 @@
 import { postGet } from "./post_handling";
+import { postData } from "./post_handling";
 
 // Object for the different API Routes
 // Each Post route has an ID which is be taken over by the Submit Event 
-const routes = {0: '/sentiment_analysis', 1: '/deep_cat', 2: '/default', 3: '/default'}
+const routes = {0: {route: '/sentiment_analysis', name: 'Sentiment Analysis'}, 1: {route: '/deep_cat', name: 'Deep Categorization'}, 2: {route_id: '/default', name: 'Default'}, 3: {route_id: '/default', name: 'Default'}}
 
 function handleSubmit(event) {
     event.preventDefault()
@@ -22,7 +23,10 @@ function handleSubmit(event) {
 
 
     let meaningText = document.getElementById('text').value;
-    let route = routes[document.getElementById('api').value];
+    let route_id = document.getElementById('api').value;
+    let route = routes[route_id];
+    console.log("Route Infos",route);
+
 
     if (!meaningText) {
         alert("Please fill in the field...!!!");
@@ -31,9 +35,14 @@ function handleSubmit(event) {
 
     console.log(`Text:${meaningText}`);
 
-    console.log(`Route:${route}`);
+    console.log(`Route:${route.route}`);
+    console.log(`Route-ID:${route_id}`);
+    
 
-    postGet(meaningText,route);
+    postGet(meaningText,route.route,route.name);
+    //postData(route,meaningText);
+
+
 }
 
 

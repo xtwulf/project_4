@@ -42,13 +42,14 @@
                 <form>
                     <label for='text'>
                         <!-- <textarea id='text' name="text" value="default" rows="5" cols="40"> -->
-                        <textarea id='text' name="text" value="default" rows="5" cols=75%>Please type text here</textarea>
+                        <!-- <textarea id='text' name="text" value="default" rows="5" cols=75%>Please type text here</textarea> -->
+                        <textarea id='text' name="text" value="default" rows="5" cols=75%>Main dishes were quite good, but desserts were too sweet for me.</textarea>
                         <br>
 
                         <label for="api">Choose a api:</label>
                         <select id="api" name="apis">
                             <option value="0">Sentiment</option>
-                            <option value="1">Categorization</option>
+                            <option selected value="1">Categorization</option>
                             <option value="2">tbd</option>
                             <option value="3">tbd</option>
                         </select>       
@@ -63,9 +64,35 @@
             </section>
 
             <section>
-                <strong>Form Results:</strong>
-                <div id="results"></div>
+                <strong>Form Results for <span id="api_type"></span>:</strong>
+                <div id="results_deepcat" display="none">
+                <table class="table table-stripped">
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Label</th>
+                            <th>Abs Relevance</th>
+                            <th>Relevance</th>
+                            <th>Polarity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id = "categorization_code"></td>
+                            <td id = "categorization_label"></td>
+                            <td id = "categorization_abs_rel"></td>
+                            <td id = "categorization_rel""></td>
+                            <td id = "categorization_polarity"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                
+                </div>
+
             </section>
+
+
         </main>
 
         <footer>
