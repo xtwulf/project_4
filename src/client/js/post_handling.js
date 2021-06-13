@@ -3,6 +3,8 @@
 
 import {updateGui} from './updateGui.js';
 
+
+/*
 const postData = async ( url = '', data = {})=>{
     console.log('::: postData running :::');
     const response = await fetch(url, {
@@ -23,12 +25,11 @@ const postData = async ( url = '', data = {})=>{
 
   try {
       // writing the Server response in the newData variable
-      /*
-      const newData = await response.json();
-      const cat_list = await newData.category_list;
-      console.log("Cat List:", cat_list);
-      */
-
+      
+      //const newData = await response.json();
+      //const cat_list = await newData.category_list;
+      //console.log("Cat List:", cat_list);
+      
       // checking the response for errors
       // console.log("New Data:",newData);
 
@@ -64,16 +65,43 @@ const postData = async ( url = '', data = {})=>{
     
   };
   
-// 
+*/
+
+
+
+// New async postData function
+
+async function postData(url, data) {
+  console.log('::: postData running :::');
+  const response = await fetch(url, {
+    method: 'POST', 
+    credentials: 'same-origin', 
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data), // body data type must match "Content-Type" header        
+  });
+
+  const newData = await response.json();
+  const test = await newData.status;
+  console.log("Test",newData);
+  
+  return(newData);
+  
+}
+
 
   // Calling the postData function via Submit Event here
 
-function postGet(text,route, route_name){
+async function postGet(text,route, route_name){
 
      // Making the POST request on the choosen route
-    var data = postData(route, {text: text});
+    var data = await postData(route, {text: text});
+    
+    updateGui(route, route_name, data.category_list);
+    
 
-    updateGui(route, route_name, data);
+    
   
     //let test = await updateGui(route, route_name, data);
     //console.log("Test:", test);
